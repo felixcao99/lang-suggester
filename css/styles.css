@@ -1,0 +1,13 @@
+#header {
+  background-color: #3888fe;
+}
+
+.card-title {
+  font-family: sans-serif;
+  color:white;
+}
+
+.custom-btn {
+  position: relative;
+  left: 40%;
+}
