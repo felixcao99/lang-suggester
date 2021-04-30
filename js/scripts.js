@@ -27,27 +27,38 @@ function nextquestion(q, btn) {
 
 $(document).ready(function() {
   let currentQ = "";
-  let currentA = "";
+  let currentA;
   let nextA = "";
+  let currentInputClass = "";
   let currentInput;
+  let currentI;
   let nextInput;
   $(".btn").click(function(event) {
     event.preventDefault();
     let clickedBtn = this.id;
     currentQ = clickedBtn.slice(2,4);
-    
-    currentInput = document.getElementById("i"+currentQ);
-    if(currentInput) {
-      currentA = currentInput.val();
-    } else {
-      currentA = "";
+    currentInputClass = "in-" + currentQ;
+
+    currentInput = document.getElementsByClassName(currentInputClass);
+    for(i in currentInput) {
+      if(i.type === "text") {
+        currentA = i.val();
+        currentI = i.id;
+      } else {
+        currentA = i.checked;
+      }
+      answerSheet[currentI] = currentA;
     }
-    answerSheet[currentQ] = currentA;
+
+
+
+
+  
     nextQ = nextquestion(currentQ, clickedBtn);
     answerRoute.push(nextQ); 
     nextA = answerSheet[nextQ];
 
-    nextInput = document.getElementById("i"+nextQ);
+    nextInput = document.getElementsByClassName("in");
     if(nextInput) {
       nextInput.value = answerSheet[nextQ];
     }
