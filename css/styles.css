@@ -11,7 +11,7 @@ button {
   background-color: #3888fe;
 }
 
-#q1 {
+#q1, #q2 {
   display: none;
 }
 
@@ -35,6 +35,9 @@ button {
   font-weight: bold;
 }
 
+.content-v {
+  font-size: 1em;
+}
 .opt {
   font-size: 1em;
 }

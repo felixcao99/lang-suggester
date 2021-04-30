@@ -35,7 +35,7 @@
       <div class="card-body">
         <span class="content">
           <div class="card-text">
-            <p>1. Please tell us your name:</p>
+            <p id="t-q1">1. Please tell us your name:</p>
             <form>
               <input class="in-q1" id="q1a" type="text">
             </form>
@@ -50,22 +50,32 @@
 
     <div class="card" style="height: 20rem;" id="q2">
       <div class="card-body">
-        
         <div class="card-text">
           <span class="content">
-            <p>2. What kind of app you want to build:</p>
+            <p id="t-q2">2. What kind of app you want to build:</p>
           </span>
           <form>
-            <input class="in-q2" id="q2a" type="radio" value="a">
+            <input class="in-q2" id="q2a" name="q2" type="radio" value="a">
             <label>Games</label><br>
-            <input class="in-q2" id="q2b" type="radio" value="b">
+            <input class="in-q2" id="q2b" name="q2" type="radio" value="b">
             <label>Web</label>
           </form>
         </div>
-        
         <div class="custom-btnpos2">
-          <button class="btn btn-primary" id="b-q1-p">Prev</button>
-          <button class="btn btn-primary" id="b-q1-n">Next</button>
+          <button class="btn btn-primary" id="b-q2-p">Prev</button>
+          <button class="btn btn-primary" id="b-q2-n">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="height: 20rem;" id="qv">
+      <div class="card-body">
+        <div class="card-text">
+          <p id="content-v"></p>
+        </div>
+        <div class="custom-btnpos2">
+          <button class="btn btn-primary" id="b-qv-p">Prev</button>
+          <button class="btn btn-primary" id="b-qv-n">Next</button>
         </div>
       </div>
     </div>
