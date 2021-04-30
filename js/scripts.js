@@ -18,7 +18,6 @@ function nextquestion(q, btn) {
   //the last char of the buttion id tells it's "Next" or "Prev"
   let btnType = btn.slice(-1);
   let answer = q+answerSheet[q];
-  let indexofq = 0;
   if(btnType === "n") {
     //push the next question into the answer route
     answerRoute.push(questionRoute[answer]);
@@ -29,14 +28,40 @@ function nextquestion(q, btn) {
   return answerRoute.slice(-1);
 }
 
+// Helper function to return the answer of the question
+function answerofquestion (q) {
+  let i = $(":input[class=" + q + "]");
+  if(i.length > 0) {
+    if(i[0].type === "text") {
+      return i[0].val();
+    }else{
+      return $("input:radio[class=" + q + "]:checked").id;
+    }
+  }else{
+    return "";
+  }
+}
+
+// Helper function to set answers from the answer sheet
+function setanswer(q, a){
+  let i = $(":input[class=" + q + "]");
+  if(i.length > 0) {
+    if(i[0].type === "text") {
+      i[0].value = a;
+    }else{
+      document.getElementById(a).checked = true;
+    }
+    return;
+  }else{
+    return;
+  }
+}
+
 $(document).ready(function() {
   let currentQ = "";
   let currentA;
   let nextA = "";
-  let currentInputClass = "";
-  let currentInput;
-  let currentI;
-  let nextInput;
+ 
   $(".btn").click(function(event) {
     event.preventDefault();
     let clickedBtn = this.id;
@@ -55,16 +80,7 @@ $(document).ready(function() {
     //   }
     // }
 
-    currentInput = $(":input[class=" + currentQ + "]");
-    if (currentInput.length) {
-      if(currentInput[0].type === "text") {
-        currentA = currentInput[0].val();
-      }else{
-        currentA = $("input:radio[class=" + currentQ + "]:checked").id;
-      }
-    }
-
-
+    currentA = answerofquestion(currentQ);
 
     //update the answer sheet
     answerSheet[currentQ] = currentA;
@@ -72,13 +88,9 @@ $(document).ready(function() {
     nextQ = nextquestion(currentQ, clickedBtn);
     nextA = answerSheet[nextQ];
 
-    //get all inputs of the next question
-    nextInput = document.getElementsByClassName("in"+nextQ);
+    //set existing answer
+    setanswer(nextQ, nextA);
 
-
-    if(nextInput) {
-      nextInput.value = answerSheet[nextQ];
-    }
 
     $(".card").hide();
     $("#header").show();
