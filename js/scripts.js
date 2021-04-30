@@ -1,36 +1,61 @@
-$(document).ready(function() {
-  $("form#tri").submit(function(event) {
-    event.preventDefault();
+const questionRoute = {
+  "q0": "q1",
+  "q1a": "q2"
+}
 
-    const side1 = parseInt($("input#sidea").val());
-    const side2 = parseInt($("input#sideb").val());
-    const side3 = parseInt($("input#sidec").val());
-    const typeofTriangle = triangle(side1, side2, side3);
+let answerSheet = {
+  "q0":"",
+  "q1":"",
+};
+let answerRoute = ["q0"];
 
-    if (typeofTriangle < 0){
-      $("#output1").hide();
-      $("#output2").hide();
-      alert("Please input valid number!");
-    } else if (typeofTriangle > 0) {
-        if (typeofTriangle === 1) {
-          $(".tp-tri").text("An Equilateral");
-        }
-        if (typeofTriangle === 2) {
-          $(".tp-tri").text("An Isosceles");
-        }
-        if (typeofTriangle === 3) {
-          $(".tp-tri").text("A Scalene");
-        }
-        $("#output2").hide();
-        $("#output1").show();
-        let pointc = cordc(side1, side2, side3);
-        const x3 = pointc[0];
-        const y3 = pointc[1];
-        draw(side1, x3, y3, 10);
-
-    }else{
-      $("#output1").hide();
-      $("#output2").show();
+function nextquestion(q, btn) {
+  let btnType = btn.slice(-1);
+  let answer = q+answerSheet[q];
+  let indexofq = 0;
+  if(btnType === "n") {
+    return questionRoute[answer];
+  }else{
+    indexofq = answerRoute.indexOf(q);
+    if(indexofq > 0){
+      return answerRoute[indexofq - 1];
+    } else {
+      return "q0";
     }
+  }
+}
+
+$(document).ready(function() {
+  let currentQ = "";
+  let currentA = "";
+  let nextA = "";
+  let currentInput;
+  let nextInput;
+  $(".btn").click(function(event) {
+    event.preventDefault();
+    let clickedBtn = this.id;
+    currentQ = clickedBtn.slice(2,4);
+    
+    currentInput = document.getElementById("i"+currentQ);
+    if(currentInput) {
+      currentA = currentInput.val();
+    } else {
+      currentA = "";
+    }
+    answerSheet[currentQ] = currentA;
+    nextQ = nextquestion(currentQ, clickedBtn);
+    answerRoute.push(nextQ); 
+    nextA = answerSheet[nextQ];
+
+    nextInput = document.getElementById("i"+nextQ);
+    if(nextInput) {
+      nextInput.value = answerSheet[nextQ];
+    }
+
+    $(".card").hide();
+    $("#header").show();
+    $("#"+nextQ).show();
+    
+  
   });
 });

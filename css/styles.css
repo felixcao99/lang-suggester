@@ -10,7 +10,7 @@ button {
   background-color: #3888fe;
 }
 
-#output {
+#q1 {
   display: none;
 }
 
@@ -20,13 +20,13 @@ button {
 }
 
 .custom-btnpos1 {
-  position: relative;
-  top: 40%;
+  position: absolute;
+  top: 70%;
   left: 40%;
 }
 .custom-btnpos2 {
-  position: relative;
-  top: 40%;
+  position: absolute;
+  top: 70%;
   left: 36%;
 }
 .content {
