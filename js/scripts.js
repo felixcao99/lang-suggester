@@ -2,8 +2,33 @@
 const questionRoute = {
   "q0":"q1",
   "q1":"q2",
-  "q2":"qv",
-  "qv":"qf"
+  "q2a":"q3",
+  "q2b":"q4",
+  "q2c":"q5",
+  "q2d":"q6",
+  "q2e":"qv",
+  "q2f":"qv",
+  "q3a":"q8",
+  "q3b":"q8",
+  "q3c":"q8",
+  "q4a":"qv",
+  "q4b":"qv",
+  "q4c":"qv",
+  "q5a":"q9",
+  "q5b":"q9",
+  "q5c":"q9",
+  "q6a":"qv",
+  "q6b":"qv",
+  "q7a":"qv",
+  "q7b":"qv",
+  "q7c":"qv",
+  "q8a":"q7",
+  "q8b":"Q6",
+  "q8c":"qv",
+  "q9a":"qv",
+  "q9a":"qv",
+  "q9b":"qv",
+  "q9c":"qv"
 }
 
 // Define the default message of every page
@@ -26,6 +51,13 @@ let answerSheet = {
   "q0":"",
   "q1":"",
   "q2":"",
+  "q3":"",
+  "q4":"",
+  "q5":"",
+  "q6":"",
+  "q7":"",
+  "q8":"",
+  "q9":"",
   "qv":"",
   "qf":""
 };
