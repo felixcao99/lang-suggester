@@ -39,7 +39,14 @@ button {
   font-size: 1em;
   white-space: pre-line;
 }
-.opt {
-  font-size: 1em;
+
+.msg-i {
+  color: auto;
+  font-style: italic;
 }
+.msg-e {
+  color: red;
+  font-style: italic;
+}
+
 

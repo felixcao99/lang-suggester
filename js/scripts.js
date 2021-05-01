@@ -6,6 +6,14 @@ const questionRoute = {
   "qv":"qf"
 }
 
+// Define the default message of every page
+const pageMessage = {
+  "q0":"Welcome",
+  "q1":"Please answer",
+  "q2":"Please answer",
+  "qv":"Please review your answers:"
+}
+
 // Define a varaible to keep the answers that the user give
 let answerSheet = {
   "q0":"",
@@ -20,6 +28,13 @@ let answerRoute = ["q0"];
 
 // Define a varaible to keep the content of the review page
 let reviewPage = "";
+
+// Function that refresh the message section
+function displaymessage(q) {
+  $("p#msg").text(pageMessage[q]);
+  $("p#msg").removeClass();
+  $("p#msg").addClass("msg-i");
+}
 
 // Function that determin what is the next question by current question and button clicked
 function nextquestion(q, btn) {
@@ -115,6 +130,8 @@ $(document).ready(function() {
   let currentA;
   let nextA = "";
   let nextQ = "";
+
+  displaymessage("q0");
  
   $(".btn").click(function(event) {
     event.preventDefault();
@@ -126,12 +143,11 @@ $(document).ready(function() {
     }
     catch(err) {
       $("p#msg").text(err);
-      $("p#msg").css("color", "red");
+      $("p#msg").addClass("msg-e");
       //stop script running
       throw "";
     }
     
-
     //update the answer sheet
     answerSheet[currentQ] = currentA;
  
@@ -156,5 +172,6 @@ $(document).ready(function() {
     $(".card#" + currentQ).hide();
     // $("#header").show();
     $(".card#"+nextQ).show();
+    displaymessage(nextQ);
   });
 });
