@@ -11,13 +11,13 @@ button {
   background-color: #3888fe;
 }
 
-#q1, #q2, #qv, #qf {
+#q1, #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #qv, #qf {
   display: none;
 }
 
 /* all question boxes are with same height */
 .card-custom {
-  height: 20rem;
+  height: 30rem;
 }
 .card-title {
   font-family: sans-serif;

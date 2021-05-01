@@ -23,12 +23,13 @@ const questionRoute = {
   "q7b":"qv",
   "q7c":"qv",
   "q8a":"q7",
-  "q8b":"Q6",
+  "q8b":"q6",
   "q8c":"qv",
   "q9a":"qv",
   "q9a":"qv",
   "q9b":"qv",
-  "q9c":"qv"
+  "q9c":"qv",
+  "qv":"qf"
 }
 
 // Define the default message of every page
@@ -212,6 +213,7 @@ function setreview() {
 function setfinal() {
   let q = "";
   let a = "";
+  let a_cleaned = ""
   let i;
   let routeString = "";
   let r = "";
@@ -220,7 +222,15 @@ function setfinal() {
     a = answerSheet[q];
 
     if(a) {
-      i = $(":input[id=" + a + "]");
+      //the name that user inputs may contain special characters and causes this selector to fails
+      //use try to avoid crush due to such failure
+      try{
+        i = $(":input[id=" + a + "]");
+      }
+      catch(e){
+        i = "";
+      }
+      
       if(i.length >0) {
         routeString += a;
       } else {
