@@ -15,8 +15,8 @@ const questionRoute = {
   "q4b":"qv",
   "q4c":"qv",
   "q5a":"q9",
-  "q5b":"q9",
-  "q5c":"q9",
+  "q5b":"qv",
+  "q5c":"qv",
   "q6a":"qv",
   "q6b":"qv",
   "q7a":"qv",
@@ -42,8 +42,36 @@ const pageMessage = {
 
 // Define the selection route to the final result
 const resultRoute = {
-  "q0q1q2aqvqf": "Hey &nameUser, you ought to study Java, so you can learn how to make mobile apps for Android!",
-  "q0q1q2bqvqf": "Hey &nameUser, you ought to study C++, so you can learn how to make cool games!",
+  //options for game development
+  "q0q1q2aq3aq8aq7aqvqf":"Hey &nameUser, you ought to study C++, so you can learn how to make cool single player PC games!",
+  "q0q1q2aq3aq8aq7bqvqf":"Hey &nameUser, you ought to study Objective-C, so you can learn how to make cool single player games on Mac!",
+  "q0q1q2aq3aq8aq7cqvqf":"Hey &nameUser, you ought to study C/C++, so you can learn how to make cool single player games on Linux!",
+  "q0q1q2aq3aq8bq6aqvqf":"Hey &nameUser, you ought to study Swift, so you can learn how to make cool mobile single player games on iOS!",
+  "q0q1q2aq3aq8bq6bqvqf":"Hey &nameUser, you ought to study Java, so you can learn how to make cool mobile single player games on Andriod!",
+  "q0q1q2aq3aq8cqvqf":"Hey &nameUser, you ought to study C++, so you can learn how to make cool single player games on consoles!",
+  "q0q1q2aq3bq8aq7aqvqf":"Hey &nameUser, you ought to study C++, so you can learn how to make cool online games on PC!",
+  "q0q1q2aq3bq8aq7bqvqf":"Hey &nameUser, you ought to study Objective-C, so you can learn how to make cool online games on Mac!",
+  "q0q1q2aq3bq8aq7cbqvqf":"Hey &nameUser, you ought to study Objective-C, so you can learn how to make cool online games on Linux!",
+  "q0q1q2aq3bq8bq6aqvqf":"Hey &nameUser, you ought to study Swift, so you can learn how to make cool mobile online games on iOS!",
+  "q0q1q2aq3bq8bq6bqvqf":"Hey &nameUser, you ought to study Java, so you can learn how to make cool mobile online games on Andriod!",
+  "q0q1q2aq3bq8cqvqf":"Hey &nameUser, you ought to study C++, so you can learn how to make cool online games on consoles!",
+  //options for web development
+  "q0q1q2bq4aqvqf":"Hey &nameUser, you ought to study HTML/CSS, so you can learn how to become a frontend web developer!",
+  "q0q1q2bq4bqvqf":"Hey &nameUser, you ought to study Javascript, so you can learn how to become a backend web developer!",
+  "q0q1q2bq4cqvqf":"Hey &nameUser, you ought to study HTML/CSS and Javascript, so you can learn how to become a full stack web developer!",
+  //options for business app development
+  "q0q1q2cq5aq9aqvqf":"Hey &nameUser, you ought to study Python, so you can learn how to do cloud computing for small businesses!",
+  "q0q1q2cq5aq9bqvqf":"Hey &nameUser, you ought to study C#, so you can learn how to do cloud computing for medium-sized businesses!",
+  "q0q1q2cq5aq9cqvqf":"Hey &nameUser, you ought to study Java, so you can learn how to do cloud computing for large businesses!",
+  "q0q1q2cq5bqvqf":"Hey &nameUser, you ought to study SQL, so you can learn how to manage and analyze business data!",
+  "q0q1q2cq5cqvqf":"Hey &nameUser, you ought to study XML/JSON, so you can learn how to exchange business data!",
+  //options for mobile development
+  "q0q1q2dq6aqvqf":"Hey &nameUser, you ought to study Swift, so you can learn how to build apps on iOS!",
+  "q0q1q2dq6bqvqf":"Hey &nameUser, you ought to study Java, so you can learn how to build apps on Andriod!",
+  //options for AI development
+  "q0q1q2eqvqf":"Hey &nameUser, you ought to study Python, so you can learn how to do AI programing as a beginner!",
+  //options for hardware development
+  "q0q1q2fqvqf":"Hey &nameUser, you ought to study C, so you can learn how to make hardware work!",
 }
 
 // Define a varaible to keep the answers that the user give
