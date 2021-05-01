@@ -2,7 +2,7 @@
 const questionRoute = {
   "q0":"q1",
   "q1":"q2",
-  "q2":"qv",
+  "q2a":"qv",
   "qv":"qf"
 }
 
@@ -19,8 +19,8 @@ let answerSheet = {
   "q0":"",
   "q1":"",
   "q2":"",
-  "qv":"review",
-  "qf":"end"
+  "qv":"",
+  "qf":""
 };
 
 // Define a varaible to keep the route that the user actually goes through. It will be used as a stack.
@@ -47,7 +47,11 @@ function nextquestion(q, btn) {
       answerRoute.push(questionRoute[q]);
     }else{
       a = answerSheet[q];
-      answerRoute.push(questionRoute[a]);
+      if(a in questionRoute) {
+        answerRoute.push(questionRoute[a]);
+      }else {
+        throw "startover";
+      }
     }
   }else{
     // if it is "Prev", pop th

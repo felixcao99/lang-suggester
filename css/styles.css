@@ -11,7 +11,7 @@ button {
   background-color: #3888fe;
 }
 
-#q1, #q2 {
+#q1, #q2, #qv {
   display: none;
 }
 
@@ -28,7 +28,7 @@ button {
 .custom-btnpos2 {
   position: absolute;
   top: 70%;
-  left: 36%;
+  left: 35%;
 }
 .content {
   font-size: 1.5em;
@@ -49,4 +49,7 @@ button {
   font-style: italic;
 }
 
+#b-qv-n {
+  background-color: red;
+}
 
