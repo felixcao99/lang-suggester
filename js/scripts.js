@@ -42,21 +42,26 @@ function nextquestion(q, btn) {
 }
 
 // Helper function to return the answer of the question
-function answerofquestion (q) {
+function answerofquestion (q, b) {
   let a="";
   let i = $(":input[class=in-" + q + "]");
   if(i.length > 0) {
     if(i[0].type === "text") {
       a = $("input:text[class=in-" + q + "]").val();
-      
-    }else{
+     }else{
       a = $("input:radio[class=in-" + q + "]:checked")[0].id;
     }
     if (a) {
       return a;
     } else {
-      throw "Please give your answer!";
+      if(b.slice(-1) === "n") {
+        throw "Please give your answer!";
+      } else {
+        return "";
+      }
     }
+  }else {
+    return "";
   }
 }
 
@@ -115,11 +120,13 @@ $(document).ready(function() {
     event.preventDefault();
     let clickedBtn = this.id;
     currentQ = clickedBtn.slice(2,4);
+
     try {
-      currentA = answerofquestion(currentQ);
+      currentA = answerofquestion(currentQ, clickedBtn);
     }
     catch(err) {
       $("p#msg").text(err);
+      $("p#msg").css("color", "red");
       //stop script running
       throw "";
     }
