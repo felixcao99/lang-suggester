@@ -18,6 +18,9 @@ let answerSheet = {
 // Define a varaible to keep the route that the user actually goes through. It will be used as a stack.
 let answerRoute = ["q0"];
 
+// Define a varaible to keep the content of the review page
+let reviewPage = "";
+
 // Function that determin what is the next question by current question and button clicked
 function nextquestion(q, btn) {
   //the last char of the buttion id tells it's "Next" or "Prev"
@@ -30,10 +33,6 @@ function nextquestion(q, btn) {
     }else{
       a = answerSheet[q];
       answerRoute.push(questionRoute[a]);
-      //refresh if q is the review page
-      if(q.slice(-1) === "v") {
-        $("p#content-v").load(" p#content-v");
-      }
     }
   }else{
     // if it is "Prev", pop th
@@ -72,14 +71,33 @@ function setanswer(q, a){
 }
 
 // Helper function to set review page
-function setreview(q, a) {
-  let t="";
-  if(parseInt(q.slice(-1)) > 0 ) {
-    t = $("p#t-" + q).text();
-    $("p#content-v").before(t + "<br>");
-    $("p#content-v").before("Answer: " + a + "<br>");
+function setreview() {
+  let q = "";
+  let a="";
+  let l;
+  let t = "";
+  let tr = "";
+  
+  for(i in answerRoute) {
+    q = answerRoute[i];
+    //only q1~qn
+    if( parseInt(q.slice(-1)) > 0 ) {
+      //text of the question
+      t = $("p#t-" + q).text();
+      //append to final text of review
+      tr += (t + "\n");
+      //answer of the question
+      a = answerSheet[q];
+      //text of the answer
+      l = $("label[for='l-" + a +"']").text();
+      if(l.length > 0) {
+        tr += (l + "\n");
+      }else{
+        tr += (a + "\n");
+      }
+    }
   }
-  return;
+  return tr;
 }
 
 $(document).ready(function() {
@@ -96,8 +114,7 @@ $(document).ready(function() {
 
     //update the answer sheet
     answerSheet[currentQ] = currentA;
-    setreview(currentQ, currentA);
-  
+ 
     nextQ = nextquestion(currentQ, clickedBtn);
     nextA = answerSheet[nextQ];
 
@@ -105,6 +122,16 @@ $(document).ready(function() {
     if(nextA.length>0) {
       setanswer(nextQ, nextA);
     }  
+
+    //Review page
+    if(currentQ === "qv" && nextQ != "qv") {
+      //refresh if q is the review page
+      reviewPage = "";
+    }
+    if(currentQ != "qv" && nextQ === 'qv') {
+      reviewPage = setreview();
+      $(".content-v").text(reviewPage);
+    }
 
     $(".card#" + currentQ).hide();
     // $("#header").show();
