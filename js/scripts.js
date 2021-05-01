@@ -213,7 +213,7 @@ function setreview() {
     //only q1~qn
     if( parseInt(q.slice(-1)) > 0 ) {
       //text of the question
-      t = $("p#t-" + q).text();
+      t = i.toString() + ". " + $("p#t-" + q + " > .tq").text();
       //append to final text of review
       tr += (t + "\n");
       //answer of the question
@@ -322,11 +322,11 @@ $(document).ready(function() {
     }  
 
     //Review page
-    if(currentQ === "qv" && nextQ != "qv") {
+    if(currentQ === "qa" && nextQ != "qa") {
       //refresh if q is the review page
       reviewPage = "";
     }
-    if(currentQ != "qv" && nextQ === "qv") {
+    if(currentQ != "qa" && nextQ === "qa") {
       reviewPage = setreview();
       $(".content-v").text(reviewPage);
     }
@@ -337,7 +337,7 @@ $(document).ready(function() {
     }
 
     $(".card#" + currentQ).hide();
-    $(".card#"+ nextQ).show();
+    $(".card#" + nextQ).show();
     displaymessage(nextQ);
   });
 });
