@@ -43,15 +43,20 @@ function nextquestion(q, btn) {
 
 // Helper function to return the answer of the question
 function answerofquestion (q) {
+  let a="";
   let i = $(":input[class=in-" + q + "]");
   if(i.length > 0) {
     if(i[0].type === "text") {
-      return $("input:text[class=in-" + q + "]").val();
+      a = $("input:text[class=in-" + q + "]").val();
+      
     }else{
-      return $("input:radio[class=in-" + q + "]:checked")[0].id;
+      a = $("input:radio[class=in-" + q + "]:checked")[0].id;
     }
-  }else{
-    return "";
+    if (a) {
+      return a;
+    } else {
+      throw "Please give your answer!";
+    }
   }
 }
 
@@ -77,7 +82,7 @@ function setreview() {
   let l;
   let t = "";
   let tr = "";
-  
+  //iterate all question and answers
   for(i in answerRoute) {
     q = answerRoute[i];
     //only q1~qn
@@ -110,7 +115,15 @@ $(document).ready(function() {
     event.preventDefault();
     let clickedBtn = this.id;
     currentQ = clickedBtn.slice(2,4);
-    currentA = answerofquestion(currentQ);
+    try {
+      currentA = answerofquestion(currentQ);
+    }
+    catch(err) {
+      $("p#msg").text(err);
+      //stop script running
+      throw "";
+    }
+    
 
     //update the answer sheet
     answerSheet[currentQ] = currentA;
@@ -136,8 +149,5 @@ $(document).ready(function() {
     $(".card#" + currentQ).hide();
     // $("#header").show();
     $(".card#"+nextQ).show();
-
-
-  
   });
 });
