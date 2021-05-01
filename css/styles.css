@@ -15,6 +15,10 @@ button {
   display: none;
 }
 
+/* all question boxes are with same height */
+.card-custom {
+  height: 20rem;
+}
 .card-title {
   font-family: sans-serif;
   color:white;

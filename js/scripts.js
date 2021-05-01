@@ -197,7 +197,7 @@ $(document).ready(function() {
       throw "";
     }
 
-    //get user name
+    //get user name which will be used for the final result
     if(currentQ === "q1") {
       nameUser = currentA;
     }

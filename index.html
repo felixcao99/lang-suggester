@@ -9,15 +9,17 @@
 </head>
 <body>
   <div class="container">
-
+    <!-- Header section -->
     <div class="card" id="header">
       <div class="card-body">
         <h5 class="card-title">Programing Language Suggester</h5>
       </div>
     </div>
+    <!-- Message section - error message will display here -->
     <p id="msg"></p>
-
-    <div class="card" style="height: 20rem;" id="q0">
+    <!-- Questions -->
+    <!-- Question 0, welcome page -->
+    <div class="card card-custom" id="q0">
       <div class="card-body">
         <span class="content">
           <div class="card-text">
@@ -30,8 +32,8 @@
         </div>
       </div>
     </div>
-
-    <div class="card" style="height: 20rem;" id="q1">
+    <!-- Question 1 for user's name-->
+    <div class="card card-custom" id="q1">
       <div class="card-body">
         <span class="content">
           <div class="card-text">
@@ -47,18 +49,26 @@
         </div>
       </div>
     </div>
-
-    <div class="card" style="height: 20rem;" id="q2">
+    <!-- Question 2 -->
+    <div class="card card-custom" id="q2">
       <div class="card-body">
         <div class="card-text">
           <span class="content">
-            <p id="t-q2">2. What kind of app you want to build:</p>
+            <p id="t-q2">2. What kind of app you want to build?</p>
           </span>
           <form>
             <input class="in-q2" id="q2a" name="q2" type="radio" value="a">
-            <label for="l-q2a">Games</label><br>
+            <label for="l-q2a">Game</label>
             <input class="in-q2" id="q2b" name="q2" type="radio" value="b">
             <label for="l-q2b">Web</label>
+            <input class="in-q2" id="q2c" name="q2" type="radio" value="c">
+            <label for="l-q2c">Business</label>
+            <input class="in-q2" id="q2d" name="q2" type="radio" value="d">
+            <label for="l-q2d">Mobile</label>
+            <input class="in-q2" id="q2e" name="q2" type="radio" value="e">
+            <label for="l-q2e">AI</label>
+            <input class="in-q2" id="q2f" name="q2" type="radio" value="f">
+            <label for="l-q2f">Hardware Control</label>
           </form>
         </div>
         <div class="custom-btnpos2">
@@ -67,8 +77,159 @@
         </div>
       </div>
     </div>
+    <!-- Question 3 -->
+    <div class="card card-custom" id="q3">
+      <div class="card-body">
+        <div class="card-text">
+          <span class="content">
+            <p id="t-q3">3. What kind of game you want to build?</p>
+          </span>
+          <form>
+            <input class="in-q3" id="q3a" name="q3" type="radio" value="a">
+            <label for="l-q3a">Single Player</label>
+            <input class="in-q3" id="q3b" name="q3" type="radio" value="b">
+            <label for="l-q3b">MMO</label>
+          </form>
+        </div>
+        <div class="custom-btnpos2">
+          <button class="btn btn-primary" id="b-q3-p">Prev</button>
+          <button class="btn btn-primary" id="b-q3-n">Next</button>
+        </div>
+      </div>
+    </div>
+    <!-- Question 4 -->
+    <div class="card card-custom" id="q4">
+      <div class="card-body">
+        <div class="card-text">
+          <span class="content">
+            <p id="t-q4">4. You are intersted in:</p>
+          </span>
+          <form>
+            <input class="in-q4" id="q4a" name="q4" type="radio" value="a">
+            <label for="l-q4a">Front-end</label>
+            <input class="in-q4" id="q4b" name="q4" type="radio" value="b">
+            <label for="l-q4b">Back-end</label>
+            <input class="in-q4" id="q4c" name="q4" type="radio" value="c">
+            <label for="l-q4c">Both</label>
+          </form>
+        </div>
+        <div class="custom-btnpos2">
+          <button class="btn btn-primary" id="b-q4-p">Prev</button>
+          <button class="btn btn-primary" id="b-q4-n">Next</button>
+        </div>
+      </div>
+    </div>
+    <!-- Question 5 -->
+    <div class="card card-custom" id="q5">
+      <div class="card-body">
+        <div class="card-text">
+          <span class="content">
+            <p id="t-q5">5. What business utility would you like to study?</p>
+          </span>
+          <form>
+            <input class="in-q5" id="q5a" name="q5" type="radio" value="a">
+            <label for="l-q5a">Cloud</label>
+            <input class="in-q5" id="q5b" name="q5" type="radio" value="b">
+            <label for="l-q5b">Data Analysis</label>
+            <input class="in-q5" id="q5c" name="q5" type="radio" value="c">
+            <label for="l-q5c">Data cummunication</label>
+          </form>
+        </div>
+        <div class="custom-btnpos2">
+          <button class="btn btn-primary" id="b-q5-p">Prev</button>
+          <button class="btn btn-primary" id="b-q5-n">Next</button>
+        </div>
+      </div>
+    </div>
+    <!-- Question 6 -->
+    <div class="card card-custom" id="q6">
+      <div class="card-body">
+        <div class="card-text">
+          <span class="content">
+            <p id="t-q6">6. Which mobile OS do you prefer?</p>
+          </span>
+          <form>
+            <input class="in-q6" id="q6a" name="q6" type="radio" value="a">
+            <label for="l-q6a">iOS</label>
+            <input class="in-q6" id="q6b" name="q6" type="radio" value="b">
+            <label for="l-q6b">Android</label>
+          </form>
+        </div>
+        <div class="custom-btnpos2">
+          <button class="btn btn-primary" id="b-q6-p">Prev</button>
+          <button class="btn btn-primary" id="b-q6-n">Next</button>
+        </div>
+      </div>
+    </div>
+    <!-- Question 7 -->
+    <div class="card card-custom" id="q7">
+      <div class="card-body">
+        <div class="card-text">
+          <span class="content">
+            <p id="t-q7">7. Which operation system do you prefer?</p>
+          </span>
+          <form>
+            <input class="in-q7" id="q7a" name="q7" type="radio" value="a">
+            <label for="l-q7a">Windows</label>
+            <input class="in-q7" id="q7b" name="q7" type="radio" value="b">
+            <label for="l-q7b">MacOS</label>
+            <input class="in-q7" id="q7c" name="q7" type="radio" value="c">
+            <label for="l-q7c">Linux</label>
+          </form>
+        </div>
+        <div class="custom-btnpos2">
+          <button class="btn btn-primary" id="b-q7-p">Prev</button>
+          <button class="btn btn-primary" id="b-q7-n">Next</button>
+        </div>
+      </div>
+    </div>
+    <!-- Question 8 -->
+    <div class="card card-custom" id="q8">
+      <div class="card-body">
+        <div class="card-text">
+          <span class="content">
+            <p id="t-q8">8. What is your favorite gaming platform?</p>
+          </span>
+          <form>
+            <input class="in-q8" id="q8a" name="q8" type="radio" value="a">
+            <label for="l-q8a">Desktop/Laptop</label>
+            <input class="in-q8" id="q8b" name="q8" type="radio" value="b">
+            <label for="l-q8b">Mobile</label>
+            <input class="in-q8" id="q8c" name="q8" type="radio" value="c">
+            <label for="l-q8c">Console</label>
+          </form>
+        </div>
+        <div class="custom-btnpos2">
+          <button class="btn btn-primary" id="b-q8-p">Prev</button>
+          <button class="btn btn-primary" id="b-q8-n">Next</button>
+        </div>
+      </div>
+    </div>
+    <!-- Question 9 -->
+    <div class="card card-custom" id="q9">
+      <div class="card-body">
+        <div class="card-text">
+          <span class="content">
+            <p id="t-q9">9. How much data volume will you handle?</p>
+          </span>
+          <form>
+            <input class="in-q9" id="q9a" name="q9" type="radio" value="a">
+            <label for="l-q9a">Low</label>
+            <input class="in-q9" id="q9b" name="q9" type="radio" value="b">
+            <label for="l-q9b">Medium</label>
+            <input class="in-q9" id="q9c" name="q9" type="radio" value="c">
+            <label for="l-q9c">High</label>
+          </form>
+        </div>
+        <div class="custom-btnpos2">
+          <button class="btn btn-primary" id="b-q9-p">Prev</button>
+          <button class="btn btn-primary" id="b-q9-n">Next</button>
+        </div>
+      </div>
+    </div>
 
-    <div class="card" style="height: 20rem;" id="qv">
+    <!-- A special Question, used for review -->
+    <div class="card card-custom" id="qv">
       <div class="card-body">
         <div class="card-text">
           <p><span class="content-v"></span></p>
@@ -79,8 +240,8 @@
         </div>
       </div>
     </div>
-
-    <div class="card" style="height: 20rem;" id="qf">
+    <!-- A special question, used for Final Result -->
+    <div class="card card-custom" id="qf">
       <div class="card-body">
         <div class="card-text">
           <p><span class="content-f"></span></p>
