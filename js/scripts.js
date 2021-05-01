@@ -11,13 +11,14 @@ const pageMessage = {
   "q0":"Welcome",
   "q1":"Please answer",
   "q2":"Please answer",
-  "qv":"Please review your answers:"
+  "qv":"Please review your answers:",
+  "qf":"We know what language fits you -"
 }
 
 // Define the selection route to the final result
 const resultRoute = {
-  "q0q1q2a": "Python",
-  "q0q1q2b": "C++",
+  "q0q1q2aqvqf": "Hey &nameUser, you ought to study Java, so you can learn how to make mobile apps for Android!",
+  "q0q1q2bqvqf": "Hey &nameUser, you ought to study C++, so you can learn how to make cool games!",
 }
 
 // Define a varaible to keep the answers that the user give
@@ -76,13 +77,19 @@ function nextquestion(q, btn) {
 function answerofquestion (q, b) {
   let a="";
   let i = $(":input[class=in-" + q + "]");
+  let v;
   if(i.length > 0) {
     if(i[0].type === "text") {
       a = $("input:text[class=in-" + q + "]").val();
      }else{
-      a = $("input:radio[class=in-" + q + "]:checked")[0].id;
+      v = $("input:radio[class=in-" + q + "]:checked")
+      if(v.length > 0) {
+        a = v[0].id;
+      } else {
+        a = "";
+      }
     }
-    if (a) {
+    if(a) {
       return a;
     } else {
       if(b.slice(-1) === "n") {
@@ -163,9 +170,8 @@ function setfinal() {
       routeString += q;
     }
   }
-  r = finalResult[routeString];
-  r = "Hey " + nameUser + ", you ought to study " + r + "!";
-  return r;
+  r = resultRoute[routeString];
+  return r.replace("&nameUser", nameUser);
 }
 
 $(document).ready(function() {
