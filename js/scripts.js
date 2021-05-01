@@ -2,7 +2,7 @@
 const questionRoute = {
   "q0":"q1",
   "q1":"q2",
-  "q2a":"qv",
+  "q2":"qv",
   "qv":"qf"
 }
 
@@ -14,6 +14,12 @@ const pageMessage = {
   "qv":"Please review your answers:"
 }
 
+// Define the selection route to the final result
+const resultRoute = {
+  "q0q1q2a": "Python",
+  "q0q1q2b": "C++",
+}
+
 // Define a varaible to keep the answers that the user give
 let answerSheet = {
   "q0":"",
@@ -23,11 +29,17 @@ let answerSheet = {
   "qf":""
 };
 
-// Define a varaible to keep the route that the user actually goes through. It will be used as a stack.
+// Define a variable to keep the user name
+let nameUser = "";
+
+// Define a variable to keep the route that the user actually goes through. It will be used as a stack.
 let answerRoute = ["q0"];
 
-// Define a varaible to keep the content of the review page
+// Define a variable to keep the content of the review page
 let reviewPage = "";
+
+// Define a variable to keep the content of the final result
+let finalResult = "";
 
 // Function that refresh the message section
 function displaymessage(q) {
@@ -129,6 +141,33 @@ function setreview() {
   return tr;
 }
 
+// Helper function to set final result
+function setfinal() {
+  let q = "";
+  let a = "";
+  let i;
+  let routeString = "";
+  let r = "";
+  for (i in answerRoute) {
+    q = answerRoute[i];
+    a = answerSheet[q];
+
+    if(a) {
+      i = $(":input[id=" + a + "]");
+      if(i.length >0) {
+        routeString += a;
+      } else {
+        routeString += q;
+      }
+    } else {
+      routeString += q;
+    }
+  }
+  r = finalResult[routeString];
+  r = "Hey " + nameUser + ", you ought to study " + r + "!";
+  return r;
+}
+
 $(document).ready(function() {
   let currentQ = "";
   let currentA;
@@ -145,17 +184,27 @@ $(document).ready(function() {
     try {
       currentA = answerofquestion(currentQ, clickedBtn);
     }
-    catch(err) {
-      $("p#msg").text(err);
+    catch(e1) {
+      $("p#msg").text(e1);
       $("p#msg").addClass("msg-e");
       //stop script running
       throw "";
     }
+
+    if(currentQ === "q1") {
+      nameUser = currentA;
+    }
     
     //update the answer sheet
     answerSheet[currentQ] = currentA;
- 
-    nextQ = nextquestion(currentQ, clickedBtn);
+    
+    try {
+      nextQ = nextquestion(currentQ, clickedBtn);
+    }
+    catch(e2) {
+      location.reload();
+    }
+   
     nextA = answerSheet[nextQ];
 
     //set existing answer
@@ -168,9 +217,15 @@ $(document).ready(function() {
       //refresh if q is the review page
       reviewPage = "";
     }
-    if(currentQ != "qv" && nextQ === 'qv') {
+    if(currentQ != "qv" && nextQ === "qv") {
       reviewPage = setreview();
       $(".content-v").text(reviewPage);
+    }
+
+    if(currentQ != "qf" && nextQ === "qf") {
+      finalResult = setfinal();
+      $(".content-f").text(finalResult);
+      
     }
 
     $(".card#" + currentQ).hide();
