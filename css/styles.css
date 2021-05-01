@@ -54,7 +54,7 @@ button {
   font-style: italic;
 }
 
-#b-qv-n {
-  background-color: red;
+.btn-circle {
+  border-radius: 30px;
 }
 

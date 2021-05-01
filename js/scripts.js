@@ -197,6 +197,7 @@ $(document).ready(function() {
       throw "";
     }
 
+    //get user name
     if(currentQ === "q1") {
       nameUser = currentA;
     }
@@ -211,6 +212,7 @@ $(document).ready(function() {
       location.reload();
     }
    
+    //if the question is answered, the answer will be displayed
     nextA = answerSheet[nextQ];
 
     //set existing answer
@@ -227,15 +229,13 @@ $(document).ready(function() {
       reviewPage = setreview();
       $(".content-v").text(reviewPage);
     }
-
+    //Final Result
     if(currentQ != "qf" && nextQ === "qf") {
       finalResult = setfinal();
       $(".content-f").text(finalResult);
-      
     }
 
     $(".card#" + currentQ).hide();
-    // $("#header").show();
     $(".card#"+nextQ).show();
     displaymessage(nextQ);
   });
