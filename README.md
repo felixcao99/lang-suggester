@@ -19,7 +19,7 @@ Before the final result is displayed, the user gets a chance to review all the q
 * Clone this repository to your desktop.
 * Navigate to the top level of the directory
 * Open _index.html_ in your browser
-* Or use the project webpage [https://felixcao99.github.io/lang-suggestor/](https://felixcao99.github.io/lang-suggestor/)
+* Or use the project webpage [https://felixcao99.github.io/lang-suggestor/](https://felixcao99.github.io/lang-suggester/)
 
 ## Configurations
 The website doesn't use database. But it is still configurable:
