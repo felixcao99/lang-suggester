@@ -337,7 +337,7 @@ $(document).ready(function() {
     }
 
     $(".card#" + currentQ).hide();
-    $(".card#" + nextQ).show();
+    $(".card#" + nextQ).fadeIn(600);
     displaymessage(nextQ);
   });
 });
