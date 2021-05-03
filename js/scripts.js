@@ -37,6 +37,13 @@ const pageMessage = {
   "q0":"Welcome",
   "q1":"Please answer",
   "q2":"Please answer",
+  "q3":"Please answer",
+  "q4":"Please answer",
+  "q5":"Please answer",
+  "q6":"Please answer",
+  "q7":"Please answer",
+  "q8":"Please answer",
+  "q9":"Please answer",
   "qa":"Please review your answers:",
   "qf":"We know what language fits you -"
 }
